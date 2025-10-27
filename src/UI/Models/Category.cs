@@ -1,0 +1,14 @@
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace UI.Models
+{
+    public class Category
+    {
+        public int Id { get; set; }
+        [Display(Name = "عنوان دسته‌بندی")]
+        public string Name { get; set; }
+        [Display(Name = "آدرس تصویر")]
+        public string ImageUrl { get; set; }
+        public List<Book> Books { get; set; }
+    }
+}
