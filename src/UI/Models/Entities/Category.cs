@@ -4,6 +4,7 @@ namespace UI.Models.Entities
 {
     public class Category
     {
+        [Display(Name = "شناسه دسته‌بندی")]
         public int Id { get; set; }
 
         [Display(Name = "عنوان دسته‌بندی")]

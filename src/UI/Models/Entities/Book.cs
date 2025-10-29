@@ -6,6 +6,7 @@ namespace UI.Models.Entities
 {
     public class Book
     {
+        [Display(Name = "شناسه کتاب")]
         public int Id { get; set; }
 
         [Display(Name = "عنوان کتاب")]
