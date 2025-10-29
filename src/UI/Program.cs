@@ -1,3 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using UI.Contracts.Repositories;
+using UI.Contracts.Services;
+using UI.Data;
+using UI.Data.Repositories;
+using UI.Services;
+
 namespace UI
 {
     public class Program
@@ -8,6 +15,15 @@ namespace UI
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddScoped<IBookRepository, BookRepository>();
+            builder.Services.AddScoped<IBookService, BookService>();
+
+            builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+            builder.Services.AddScoped<ICategoryService, CategoryService>();
 
             var app = builder.Build();
 
