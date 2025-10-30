@@ -31,31 +31,7 @@ namespace UI.Controllers
         [HttpPost]
         public IActionResult Create(CreateBookViewModel model)
         {
-            if (model.ImageFile != null && model.ImageFile.Length > 0)
-            {
-                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/books");
-                Directory.CreateDirectory(uploadsFolder);
-
-                var uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.ImageFile.FileName);
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
-
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    model.ImageFile.CopyTo(stream);
-                }
-
-                var modelDto = new CreateBookDto()
-                {
-                    Title = model.Title,
-                    AuthorName = model.AuthorName,
-                    PagesCount = model.PagesCount,
-                    Price=model.Price,
-                    CategoryId = model.CategoryId,
-                    ImageUrl = filePath
-                };
-                _bookService.CreateNewBook(modelDto);
-            }
-
+            _bookService.CreateNewBook(model);
             return RedirectToAction("Index","Home");
         }
     }

@@ -6,6 +6,7 @@ namespace UI.Contracts.Services
     public interface IBookService
     {
         List<GetBookDto> GetLimitedLatestBooks();
-        void CreateNewBook(CreateBookDto model);
+        void CreateNewBook(CreateBookViewModel model);
+
     }
 }
