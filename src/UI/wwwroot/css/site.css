@@ -134,6 +134,16 @@ body {
     transition: 0.3s;
 }
 
+.category-card h6{
+    font-size:1.25rem;
+    padding-top:10px;
+}
+
+.category-card p {
+    font-size: 1rem;
+    color: #7d9ad7;
+}
+
 .category-card:hover {
     transform: translateY(-4px);
 }
