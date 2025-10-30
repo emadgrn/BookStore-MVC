@@ -53,6 +53,9 @@ body {
     justify-content: space-between;
     height: 4em;
 }
+.add-book {
+    color: #0026ff;
+}
 
 .ml-20 {
     margin-left: 20px;
@@ -219,6 +222,9 @@ body {
 
 /* --- Footer Section --- */
 .footer {
+    position:absolute;
+    width:100%;
+    bottom:0;
     background: #111827;
     color: #eee;
     text-align: center;
