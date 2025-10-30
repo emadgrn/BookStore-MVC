@@ -11,5 +11,10 @@ namespace UI.Services
             return categoryRepo.GetAll();
         }
 
+        public List<String> GetAllCategoriesNames()
+        {
+            return categoryRepo.GetAllCategoriesNames();
+        }
+
     }
 }

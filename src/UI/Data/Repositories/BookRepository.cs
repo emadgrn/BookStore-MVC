@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UI.Contracts.Repositories;
 using UI.Models.DTOs;
+using UI.Models.Entities;
 
 namespace UI.Data.Repositories
 {
@@ -28,6 +29,22 @@ namespace UI.Data.Repositories
                     CreatedAt = b.CreatedAt
                 })
                 .ToList();
+        }
+
+        public void Create(CreateBookDto model)
+        {
+            var entity = new Book()
+            {
+                Title = model.Title,
+                AuthorName = model.AuthorName,
+                PagesCount = model.PagesCount,
+                Price = model.Price,
+                CategoryId = model.CategoryId,
+                ImageUrl = model.ImageUrl,
+                CreatedAt = DateTime.Now
+            };
+            _context.Books.Add(entity);
+            _context.SaveChanges();
         }
     }
 }

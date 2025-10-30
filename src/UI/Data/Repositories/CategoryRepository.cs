@@ -22,5 +22,13 @@ namespace UI.Data.Repositories
                     ImageUrl = c.ImageUrl
                 }).ToList();
         }
+
+        public List<string> GetAllCategoriesNames()
+        {
+            return _context.Categories
+                .Select(c => c.Name)
+                .ToList();
+        }
+
     }
 }
