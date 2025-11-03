@@ -12,7 +12,7 @@ namespace UI.Services
 
         public List<GetBookDto> GetLimitedLatestBooks()
         {
-            const int topItems = 5;
+            const int topItems = 6;
             return bookRepo.GetLatestBooks(topItems);
         }
 
