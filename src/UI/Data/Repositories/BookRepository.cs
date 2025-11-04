@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using UI.Contracts.Repositories;
-using UI.Models.DTOs;
+using UI.Models.DTOs.Book;
 using UI.Models.Entities;
 
 namespace UI.Data.Repositories

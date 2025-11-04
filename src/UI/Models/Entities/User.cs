@@ -10,6 +10,5 @@ namespace UI.Models.Entities
         public string? PhoneNumber { get; set; }
         public RoleEnum Role { get; set; }
         public DateTime CreatedAt { get; set; }
-        public int CreatedBy { get; set; }
     }
 }

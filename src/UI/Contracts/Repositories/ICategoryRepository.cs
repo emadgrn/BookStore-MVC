@@ -1,4 +1,4 @@
-﻿using UI.Models.DTOs;
+﻿using UI.Models.DTOs.Category;
 
 namespace UI.Contracts.Repositories
 {

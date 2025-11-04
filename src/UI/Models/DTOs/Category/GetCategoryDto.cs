@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace UI.Models.DTOs
+namespace UI.Models.DTOs.Category
 {
     public class GetCategoryDto
     {

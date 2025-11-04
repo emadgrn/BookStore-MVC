@@ -1,4 +1,5 @@
-﻿using UI.Models.DTOs;
+﻿using UI.Models.DTOs.Book;
+using UI.Models.DTOs.Category;
 
 namespace UI.Models.ViewModels
 {

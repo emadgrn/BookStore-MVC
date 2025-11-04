@@ -1,5 +1,5 @@
 ﻿using UI.Contracts.Repositories;
-using UI.Models.DTOs;
+using UI.Models.DTOs.Category;
 
 namespace UI.Data.Repositories
 {

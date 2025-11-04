@@ -1,7 +1,7 @@
 ﻿using UI.Contracts.Repositories;
 using UI.Contracts.Services;
 using UI.Data.Repositories;
-using UI.Models.DTOs;
+using UI.Models.DTOs.Book;
 using UI.Models.Entities;
 using UI.Models.ViewModels;
 

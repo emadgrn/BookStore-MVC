@@ -1,4 +1,4 @@
-﻿namespace UI.Models.DTOs
+﻿namespace UI.Models.DTOs.Book
 {
     public class CreateBookDto
     {

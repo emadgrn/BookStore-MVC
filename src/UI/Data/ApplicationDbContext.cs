@@ -8,6 +8,7 @@ namespace UI.Data
     {
         public DbSet<Book> Books { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,12 +24,5 @@ namespace UI.Data
             base.OnModelCreating(modelBuilder);
         }
 
-        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        // {
-        //     optionsBuilder
-        //         .UseSqlServer(
-        //             "Server=.\\SQLEXPRESS;Database=SurveySystem;Trusted_Connection=True;TrustServerCertificate=True;");
-        //     base.OnConfiguring(optionsBuilder);
-        // }
     }
 }
