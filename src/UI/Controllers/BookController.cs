@@ -6,13 +6,13 @@ using UI.Services;
 
 namespace UI.Controllers
 {
-    public class BooksController : Controller
+    public class BookController : Controller
     {
-        private readonly ILogger<BooksController> _logger;
+        private readonly ILogger<BookController> _logger;
         private readonly IBookService _bookService;
         private readonly ICategoryService _categoryService;
 
-        public BooksController(ILogger<BooksController> logger, IBookService bookService,
+        public BookController(ILogger<BookController> logger, IBookService bookService,
             ICategoryService categoryService)
         {
             _logger = logger;

@@ -1,4 +1,6 @@
-﻿namespace UI.Database
+﻿using UI.Models;
+
+namespace UI.Database
 {
     public static class InMemoryDatabase
     {
