@@ -4,6 +4,10 @@ namespace UI.Contracts.Repositories;
 
 public interface IUserRepository
 {
-    void Create(CreateUserDto model);
     List<GetUserDto> GetAll();
+    GetUserSummaryDto? Login(string username, string password);
+    GetUserSummaryDto? Register(CreateUserDto model);
+    bool UsernameExists(string username);
+
+
 }
