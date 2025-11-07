@@ -1,0 +1,53 @@
+﻿@model UI.Models.DTOs.Category.GetCategoryDto
+
+@{
+    ViewData["Title"] = "ویرایش دسته‌بندی";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 85vh;">
+    <div class="card-login shadow-lg p-4 rounded-4" style="width: 420px;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold" style="color:#111827;">ویرایش دسته‌بندی</h3>
+            <p class="text-muted">در صورت نیاز، اطلاعات را تغییر دهید</p>
+        </div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center py-2">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form asp-action="Update" asp-controller="Category" method="post" enctype="multipart/form-data" class="text-end" dir="rtl">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label">عنوان:</label>
+                <input asp-for="Name" class="form-control" placeholder=""/>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="BriefDescription" class="form-label">توصیف مختصر:</label>
+                <input asp-for="BriefDescription" type="text" class="form-control" placeholder=""/>
+            </div>
+
+            @* <div class="col-md-6"> *@
+            @*     <label asp-for="ImageFile" class="form-label">تصویر دسته‌بندی</label> *@
+            @*     <input asp-for="ImageFile" type="file" class="form-control" accept="image/*"> *@
+            @* </div> *@
+
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-success fw-bold text-white">
+                    <i class="bi bi-person-plus-fill me-1"></i> بروزرسانی دسته‌بندی
+                </button>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-controller="Admin" asp-action="CategoriesList" class="text-decoration-none fw-bold" style="color: #1f47e8;">
+                    بازگشت به لیست دسته‌بندیها
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

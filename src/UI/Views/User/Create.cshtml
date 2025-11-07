@@ -1,0 +1,75 @@
+﻿@using UI.Models.Entities.Enums
+@model UI.Models.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "ایجاد کاربر جدید";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 85vh;">
+    <div class="card-login shadow-lg p-4 rounded-4" style="width: 420px;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold" style="color:#111827;">ایجاد کاربر جدید</h3>
+            <p class="text-muted">اطلاعات کاربر را وارد کنید</p>
+        </div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center py-2">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form asp-action="Create" asp-controller="User" method="post" class="text-end" dir="rtl">
+
+            <div class="mb-3">
+                <label asp-for="Firstname" class="form-label">نام:</label>
+                <input asp-for="Firstname" class="form-control" placeholder="نام کوچک کاربر" />
+                <span asp-validation-for="Firstname" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Lastname" class="form-label">نام خانوادگی:</label>
+                <input asp-for="Lastname" class="form-control" placeholder="نام خانوادگی کاربر" />
+                <span asp-validation-for="Lastname" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">نام کاربری:</label>
+                <input asp-for="Username" class="form-control" placeholder="نام کاربری را وارد کنید" />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">رمز عبور:</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="رمز عبور را وارد کنید" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PhoneNumber" class="form-label">شماره موبایل (اختیاری):</label>
+                <input asp-for="PhoneNumber" class="form-control" placeholder="شماره موبایل کاربر" />
+                <span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label">نقش کاربر:</label>
+                <select asp-for="Role" class="form-select"
+                        asp-items="Html.GetEnumSelectList<RoleEnum>()">
+                    <option value="">انتخاب نقش...</option>
+                </select>
+                <span asp-validation-for="Role" class="text-danger small"></span>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-success fw-bold text-white">
+                    <i class="bi bi-person-plus-fill me-1"></i> ثبت کاربر
+                </button>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-controller="Admin" asp-action="UsersList" class="text-decoration-none fw-bold" style="color: #1f47e8;">
+                    بازگشت به لیست کاربران
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

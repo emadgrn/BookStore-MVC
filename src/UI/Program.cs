@@ -28,6 +28,9 @@ namespace UI
             builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IUserService, UserService>();
 
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -10,5 +10,10 @@ public interface IUserService
     
     public Result<GetUserSummaryDto> Login(string mobile, string password);
     public Result<GetUserSummaryDto> Register(CreateUserDto model);
+    public Result<GetUserDto> GetUserById(int id);
+    public List<GetUserDto> GetUsersListForAdmin(int id);
+    public UpdateUserDto? GetUpdateUserDetails(int userId);
+    public Result<bool> Update(int userId, UpdateUserDto model);
+    public bool DeleteUser(int userId);
 
 }

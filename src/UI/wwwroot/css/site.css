@@ -6,7 +6,6 @@ html {
     html {
         font-size: 14px;
     }
-
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -22,7 +21,7 @@ html {
 @font-face {
     font-family: Vazirmatn;
     src: url('../fonts/webfonts/Vazirmatn-Regular.woff2') format('woff2');
-    font-weight:500;
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
@@ -53,6 +52,7 @@ body {
     justify-content: space-between;
     height: 4em;
 }
+
 .add-book {
     color: #0026ff;
 }
@@ -69,11 +69,12 @@ body {
     padding: 8px 20px;
     cursor: pointer;
     font-size: 1rem;
+    text-decoration: none;
 }
 
-.login-btn:hover {
-    background: #061953;
-}
+    .login-btn:hover {
+        background: #061953;
+    }
 
 /* --- Hero Section --- */
 .hero {
@@ -114,12 +115,13 @@ body {
     margin: 40px auto;
     text-align: center;
 }
-.categories h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #111827;
-    margin-bottom: 25px;
-}
+
+    .categories h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #111827;
+        margin-bottom: 25px;
+    }
 
 .category-list {
     display: flex;
@@ -137,42 +139,42 @@ body {
     transition: 0.3s;
 }
 
-.category-card h6{
-    font-size:1.25rem;
-    padding-top:10px;
-}
+    .category-card h6 {
+        font-size: 1.25rem;
+        padding-top: 10px;
+    }
 
-.category-card p {
-    font-size: 1rem;
-    color: #7d9ad7;
-}
+    .category-card p {
+        font-size: 1rem;
+        color: #7d9ad7;
+    }
 
-.category-card:hover {
-    transform: translateY(-4px);
-}
+    .category-card:hover {
+        transform: translateY(-4px);
+    }
 
-.category-card img {
-    width: 80px;
-    height: 80px;
-    display: block;
-    margin: 0 auto 10px;
-}
+    .category-card img {
+        width: 80px;
+        height: 80px;
+        display: block;
+        margin: 0 auto 10px;
+    }
 
 
 /* --- Books --- */
 .latest-books {
     width: 90%;
     margin: 50px auto;
-    margin-bottom:150px;
+    margin-bottom: 150px;
     text-align: center;
 }
 
-.latest-books h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #111827;
-    margin-bottom: 25px;
-}
+    .latest-books h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #111827;
+        margin-bottom: 25px;
+    }
 
 .book-list {
     display: flex;
@@ -205,16 +207,17 @@ body {
         padding: 15px;
         margin: 0;
     }
+
     .book-card h4 {
         font-size: 1rem;
         font-weight: lighter;
         color: #6d6f76;
-        padding:2px
+        padding: 2px
     }
 
 
     .book-card .price {
-        font-size:1.15rem;
+        font-size: 1.15rem;
         color: red;
         font-weight: bold;
         margin-bottom: 15px;
@@ -222,9 +225,9 @@ body {
 
 /* --- Footer Section --- */
 .footer {
-    position:absolute;
-    width:100%;
-    bottom:0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
     background: #111827;
     color: #eee;
     text-align: center;
@@ -232,11 +235,13 @@ body {
     font-size: 1rem;
     margin-top: 0px;
 }
-.footer-flex h6{
+
+.footer-flex h6 {
     color: #c6c6c6;
 }
+
 .footer-flex p {
-    padding-bottom:0px;
+    padding-bottom: 0px;
 }
 
 .footer-flex {
@@ -245,5 +250,30 @@ body {
     align-items: center;
     justify-content: space-evenly;
     margin: 20px auto 0px;
-    
+}
+
+
+/* --- Login --- */
+.btn-login {
+    background: linear-gradient(90deg, #1f47e8, #121826);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+    .btn-login:hover {
+        opacity: 0.9;
+    }
+
+.card-login {
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    background: linear-gradient(45deg, #fff, #e6ebfd);
+}
+
+input::placeholder {
+    color: #aaa;
 }
