@@ -1,0 +1,70 @@
+﻿@using UI.Models.Entities.Enums
+@model UI.Models.DTOs.User.UpdateUserDto
+@{
+    ViewData["Title"] = "ویرایش کاربر";
+}
+
+<div class="d-flex justify-content-center align-items-center" style="min-height: 85vh;">
+    <div class="card-login shadow-lg p-4 rounded-4" style="width: 420px;">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold" style="color:#111827;">ویرایش اطلاعات کاربر</h3>
+            <p class="text-muted">در صورت نیاز، اطلاعات را تغییر دهید</p>
+        </div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger text-center py-2">
+                @ViewBag.Error
+            </div>
+        }
+
+        <form asp-action="Update" asp-controller="User" method="post" >
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="Firstname" class="form-label">نام:</label>
+                <input asp-for="Firstname" class="form-control"  />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Lastname" class="form-label">نام خانوادگی:</label>
+                <input asp-for="Lastname" class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">نام کاربری:</label>
+                <input asp-for="Username" class="form-control" />
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">رمز عبور جدید:</label>
+                <input asp-for="Password"  class="form-control" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="PhoneNumber" class="form-label">شماره موبایل:</label>
+                <input asp-for="PhoneNumber" class="form-control"  />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label">نقش کاربر:</label>
+                <select asp-for="Role" class="form-select"
+                        asp-items="Html.GetEnumSelectList<RoleEnum>()">
+                    @* <option value="">انتخاب نقش...</option> *@
+                </select>
+            </div>
+
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-warning fw-bold text-white">
+                    <i class="bi bi-check2-square me-1"></i> بروزرسانی کاربر
+                </button>
+            </div>
+
+            <div class="text-center mt-3">
+                <a asp-controller="Admin" asp-action="UsersList" class="text-decoration-none fw-bold" style="color: #1f47e8;">
+                    بازگشت به لیست کاربران
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

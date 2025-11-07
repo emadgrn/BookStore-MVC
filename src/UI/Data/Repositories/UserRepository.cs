@@ -31,6 +31,25 @@ namespace UI.Data.Repositories
                 .ToList();
         }
 
+
+        public GetUserDto? GetById(int id)
+        {
+            return _context.Users
+                .Where(u => u.Id == id)
+                .Select(u => new GetUserDto
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    Firstname = u.Firstname,
+                    Lastname = u.Lastname,
+                    PhoneNumber = u.PhoneNumber,
+                    Role = u.Role,
+                    CreatedAt = u.CreatedAt
+                })
+                .FirstOrDefault();
+        }
+
+
         public GetUserSummaryDto? Login(string username, string password)
         {
             return _context.Users
@@ -68,9 +87,64 @@ namespace UI.Data.Repositories
             {
                 Id = entity.Id,
                 Username = entity.Username,
-                Fullname = entity.Firstname +" "+entity.Lastname,
+                Fullname = entity.Firstname + " " + entity.Lastname,
                 Role = entity.Role
             };
+        }
+
+        public UpdateUserDto? GetUpdateUserDetailsById(int id)
+        {
+            return _context.Users
+                .Where(u => u.Id == id)
+                .Select(u => new UpdateUserDto()
+                {
+                    Id = u.Id,
+                    Username = u.Username,
+                    Firstname = u.Firstname,
+                    Lastname = u.Lastname,
+                    PhoneNumber = u.PhoneNumber,
+                    Role = u.Role,
+                    Password = u.Password
+                })
+                .FirstOrDefault();
+        }
+
+        public bool Update(int userId, UpdateUserDto model)
+        {
+
+            var user = _context.Users
+                .FirstOrDefault(u => u.Id == userId);
+
+            try
+            {
+                if (user is not null)
+                {
+                    user.Username = model.Username;
+                    user.Password = model.Password;
+                    user.Firstname = model.Firstname;
+                    user.Lastname = model.Lastname;
+                    user.PhoneNumber = model.PhoneNumber;
+                    user.Role = model.Role;
+
+                    _context.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+
+        public bool DeleteById(int userId)
+        {
+            var rowsAffected = _context.Users
+                .Where(x => x.Id == userId)
+                .ExecuteDelete();
+
+            return rowsAffected > 0;
         }
     }
 

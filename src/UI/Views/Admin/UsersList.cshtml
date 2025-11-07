@@ -1,0 +1,82 @@
+﻿@using UI.Models.Entities.Enums
+@model List<UI.Models.ViewModels.UserInfoViewModel>
+
+@{
+    ViewData["Title"] = "مدیریت کاربران";
+}
+
+<div class="container mt-5" dir="rtl">
+
+    <!-- Header Section -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold" style="color:#111827;">مدیریت کاربران</h3>
+        <a asp-controller="User" asp-action="Create" class="btn btn-success fw-bold">
+            <i class="bi bi-person-plus-fill me-1"></i> ایجاد کاربر جدید
+        </a>
+    </div>
+
+    <!-- Users Table -->
+    @if (Model != null && Model.Any())
+    {
+        <div class="table-responsive shadow-sm rounded-4">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">نام</th>
+                        <th scope="col">نام خانوادگی</th>
+                        <th scope="col">نام کاربری</th>
+                        <th scope="col">شماره موبایل</th>
+                        <th scope="col">نقش</th>
+                        <th scope="col">تاریخ ایجاد</th>
+                        <th scope="col">عملیات</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    @foreach(var user in Model) 
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Firstname</td>
+                            <td>@user.Lastname</td>
+                            <td>@user.Username</td>
+                            <td>@(string.IsNullOrEmpty(user.PhoneNumber) ? "—" : user.PhoneNumber)</td>
+                            <td>
+                                @if (user.Role == RoleEnum.Admin)
+                                {
+                                    <span class="badge bg-primary">مدیر</span>
+                                }
+                                else if (user.Role == RoleEnum.Customer)
+                                {
+                                    <span class="badge bg-info">مشتری</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-secondary">نامشخص</span>
+                                }
+                            </td>
+                            <td>@user.CreatedAt.ToString("yyyy/MM/dd")</td>
+                            <td>
+                                <div class="d-flex justify-content-center gap-2">
+                                    <a asp-controller="User" asp-action="Update" asp-route-id="@user.Id" class="btn btn-sm btn-warning fw-bold">
+                                        <i class="bi bi-pencil-square"></i> ویرایش
+                                    </a>
+                                    <form asp-controller="User" asp-action="Delete" asp-route-id="@user.Id" method="post" onsubmit="return confirm('آیا از حذف این کاربر مطمئن هستید؟')">
+                                        <button type="submit" class="btn btn-sm btn-danger fw-bold">
+                                            <i class="bi bi-trash-fill"></i> حذف
+                                        </button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center mt-4">هیچ کاربری یافت نشد.</div>
+    }
+</div>
+
